@@ -1,6 +1,8 @@
-import { Text, View } from "react-native";
+import { useState } from "react";
+import { Text, TextInput, View } from "react-native";
 
 export default function Index() {
+  const [nome, setNome] = useState('');
   return (
     <View
       style={{
@@ -9,7 +11,17 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <TextInput
+        placeholder="Digite algo..."
+        onChangeText = {novoTexto => setNome(novoTexto)}
+        value={nome}
+        style={{
+          width: "100%",
+          padding: 5,
+          borderWidth:1
+        }}>
+      </TextInput>
+      <Text>{nome}</Text>
     </View>
   );
 }
